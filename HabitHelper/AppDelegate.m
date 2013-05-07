@@ -41,7 +41,7 @@
         self.timer = nil;
     }
     float repeatInterval = [[NSUserDefaults standardUserDefaults] floatForKey: @"repeatInterval"];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:repeatInterval target:self selector:@selector(showPopup:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:repeatInterval * 60 target:self selector:@selector(showPopup:) userInfo:nil repeats:YES];
     [self showPopup: nil];
 }
 
