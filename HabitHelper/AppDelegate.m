@@ -8,9 +8,12 @@
 
 #import "AppDelegate.h"
 #import "PopupWindowController.h"
+#import "PreferenceWindowController.h"
 
 @interface AppDelegate()
 @property (strong, nonatomic) PopupWindowController *popupWindow;
+@property (retain) PreferenceWindowController *preferencesWindow;
+@property (retain) NSTimer *timer;
 @end
 
 @implementation AppDelegate
@@ -19,9 +22,27 @@
 {
     [self setDefaults];
     self.popupWindow = [[PopupWindowController alloc] initWithWindowNibName: @"PopupWindowController"];
-    [self showPopup: nil];
+    [self resetTimer];
+    [self showPreferences:nil];
+}
+
+-(IBAction)showPreferences:(id)sender{
+    if(!self.preferencesWindow) {
+        self.preferencesWindow = [[PreferenceWindowController alloc] initWithWindowNibName:@"PreferenceWindowController"];
+    }
+    
+    [self.preferencesWindow showWindow:self];
+}
+
+- (void)resetTimer
+{
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
     float repeatInterval = [[NSUserDefaults standardUserDefaults] floatForKey: @"repeatInterval"];
-    [NSTimer scheduledTimerWithTimeInterval:repeatInterval target:self selector:@selector(showPopup:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:repeatInterval target:self selector:@selector(showPopup:) userInfo:nil repeats:YES];
+    [self showPopup: nil];
 }
 
 - (void)showPopup:(NSTimer *)timer
@@ -38,6 +59,12 @@
 - (void)setDefaults
 {
     [[NSUserDefaults standardUserDefaults] setFloat:5.0 forKey:@"repeatInterval"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"POSTURE" forKey:@"habitMessage"];
+    [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"*" options:NSKeyValueObservingOptionNew context:nil];
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self resetTimer];
+}
 @end
