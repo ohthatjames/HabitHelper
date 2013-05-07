@@ -21,9 +21,15 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [self setDefaults];
+    
+    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    
+    [statusItem setTitle: @"HH"];
+    [statusItem setMenu: menu];
+    [statusItem setHighlightMode:YES];
+    
     self.popupWindow = [[PopupWindowController alloc] initWithWindowNibName: @"PopupWindowController"];
     [self resetTimer];
-    [self showPreferences:nil];
 }
 
 -(IBAction)showPreferences:(id)sender{
@@ -32,6 +38,9 @@
     }
     
     [self.preferencesWindow showWindow:self];
+}
+- (IBAction)quit:(id)sender {
+    [NSApp terminate:nil];
 }
 
 - (void)resetTimer
