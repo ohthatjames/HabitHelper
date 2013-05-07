@@ -7,12 +7,30 @@
 //
 
 #import "AppDelegate.h"
+#import "PopupWindowController.h"
+
+@interface AppDelegate()
+@property (strong, nonatomic) PopupWindowController *popupWindow;
+@end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    self.popupWindow = [[PopupWindowController alloc] initWithWindowNibName: @"PopupWindowController"];
+    [self showPopup: nil];
+    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(showPopup:) userInfo:nil repeats:YES];
+}
+
+- (void)showPopup:(NSTimer *)timer
+{
+    [self.popupWindow showWindow:self];
+    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(hidePopup:) userInfo:nil repeats:NO];
+}
+
+- (void)hidePopup:(NSTimer *)timer
+{
+    [self.popupWindow close];
 }
 
 @end

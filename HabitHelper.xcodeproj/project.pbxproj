@@ -17,6 +17,8 @@
 		1A3763C1173998D8007AFE3E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3763A1173998D8007AFE3E /* Cocoa.framework */; };
 		1A3763C9173998D8007AFE3E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A3763C7173998D8007AFE3E /* InfoPlist.strings */; };
 		1A3763CC173998D8007AFE3E /* HabitHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3763CB173998D8007AFE3E /* HabitHelperTests.m */; };
+		1A3763D81739993D007AFE3E /* PopupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3763D61739993D007AFE3E /* PopupWindowController.m */; };
+		1A3763D91739993D007AFE3E /* PopupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A3763D71739993D007AFE3E /* PopupWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,9 @@
 		1A3763C8173998D8007AFE3E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1A3763CA173998D8007AFE3E /* HabitHelperTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HabitHelperTests.h; sourceTree = "<group>"; };
 		1A3763CB173998D8007AFE3E /* HabitHelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HabitHelperTests.m; sourceTree = "<group>"; };
+		1A3763D51739993D007AFE3E /* PopupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupWindowController.h; sourceTree = "<group>"; };
+		1A3763D61739993D007AFE3E /* PopupWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupWindowController.m; sourceTree = "<group>"; };
+		1A3763D71739993D007AFE3E /* PopupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +121,9 @@
 			children = (
 				1A3763B3173998D8007AFE3E /* AppDelegate.h */,
 				1A3763B4173998D8007AFE3E /* AppDelegate.m */,
+				1A3763D51739993D007AFE3E /* PopupWindowController.h */,
+				1A3763D61739993D007AFE3E /* PopupWindowController.m */,
+				1A3763D71739993D007AFE3E /* PopupWindowController.xib */,
 				1A3763B6173998D8007AFE3E /* MainMenu.xib */,
 				1A3763A8173998D8007AFE3E /* Supporting Files */,
 			);
@@ -227,6 +235,7 @@
 				1A3763AC173998D8007AFE3E /* InfoPlist.strings in Resources */,
 				1A3763B2173998D8007AFE3E /* Credits.rtf in Resources */,
 				1A3763B8173998D8007AFE3E /* MainMenu.xib in Resources */,
+				1A3763D91739993D007AFE3E /* PopupWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +272,7 @@
 			files = (
 				1A3763AE173998D8007AFE3E /* main.m in Sources */,
 				1A3763B5173998D8007AFE3E /* AppDelegate.m in Sources */,
+				1A3763D81739993D007AFE3E /* PopupWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
