@@ -60,7 +60,9 @@
 {
     [[NSUserDefaults standardUserDefaults] setFloat:5.0 forKey:@"repeatInterval"];
     [[NSUserDefaults standardUserDefaults] setObject:@"POSTURE" forKey:@"habitMessage"];
-    [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"*" options:NSKeyValueObservingOptionNew context:nil];
+    // TODO: There must be a way of observing everything...
+    [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"repeatInterval" options:NSKeyValueObservingOptionNew context:nil];
+    [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"habitMessage" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
