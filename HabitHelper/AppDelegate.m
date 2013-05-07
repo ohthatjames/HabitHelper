@@ -17,20 +17,27 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [self setDefaults];
     self.popupWindow = [[PopupWindowController alloc] initWithWindowNibName: @"PopupWindowController"];
     [self showPopup: nil];
-    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(showPopup:) userInfo:nil repeats:YES];
+    float repeatInterval = [[NSUserDefaults standardUserDefaults] floatForKey: @"repeatInterval"];
+    [NSTimer scheduledTimerWithTimeInterval:repeatInterval target:self selector:@selector(showPopup:) userInfo:nil repeats:YES];
 }
 
 - (void)showPopup:(NSTimer *)timer
 {
-    [self.popupWindow showWindow:self];
+    [self.popupWindow showWindow:nil];
     [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(hidePopup:) userInfo:nil repeats:NO];
 }
 
 - (void)hidePopup:(NSTimer *)timer
 {
     [self.popupWindow close];
+}
+
+- (void)setDefaults
+{
+    [[NSUserDefaults standardUserDefaults] setFloat:5.0 forKey:@"repeatInterval"];
 }
 
 @end
