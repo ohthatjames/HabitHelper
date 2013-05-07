@@ -28,15 +28,13 @@
     [statusItem setMenu: menu];
     [statusItem setHighlightMode:YES];
     
+    self.preferencesWindow = [[PreferenceWindowController alloc] initWithWindowNibName:@"PreferenceWindowController"];
+    
     self.popupWindow = [[PopupWindowController alloc] initWithWindowNibName: @"PopupWindowController"];
     [self resetTimer];
 }
 
 -(IBAction)showPreferences:(id)sender{
-    if(!self.preferencesWindow) {
-        self.preferencesWindow = [[PreferenceWindowController alloc] initWithWindowNibName:@"PreferenceWindowController"];
-    }
-    
     [self.preferencesWindow showWindow:self];
 }
 - (IBAction)quit:(id)sender {
